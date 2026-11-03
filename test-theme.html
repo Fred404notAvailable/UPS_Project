@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Test - DevCrew AI</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <script src="scripts/mode.js"></script>
+  <style>
+    body {
+      padding: 40px;
+      font-family: var(--font-mono);
+    }
+    .test-box {
+      border: 1px solid var(--rule);
+      padding: 24px;
+      background: var(--panel);
+      color: var(--ink);
+    }
+    .accent-box {
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 12px;
+      margin-top: 16px;
+    }
+    .pill {
+      border-radius: 9999px;
+      border: 1px solid var(--rule);
+      padding: 8px 16px;
+      background: var(--bg);
+      color: var(--ink);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-box">
+    <h1>DevCrew AI Theme Switch Test</h1>
+    <p>Current theme token verification.</p>
+    <button id="mode-switch-btn" class="pill">
+      <span>(o) CHANGE MODE</span>
+    </button>
+    <div id="current-mode-label" style="font-size: 11px; margin-top: 8px;">[ MODE: PAPER ]</div>
+    <div id="local-time-display" style="font-size: 11px; margin-top: 8px;">LOCAL TIME</div>
+    <div class="accent-box">ACCENT BLOCK TEST</div>
+  </div>
+</body>
+</html>
+

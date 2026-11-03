@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="100%" height="100%" fill="none" stroke="currentColor" aria-label="DevCrew AI Multi-Agent Pipeline Graph" role="img">
+  <title>DevCrew AI Multi-Agent Pipeline Graph</title>
+  <desc>Stateful orchestrator central node connected to six satellite stage nodes: decompose, execute, scan, heal, approve, and deploy, with four precision callouts and a dashed self-healing return loop.</desc>
+
+  <style>
+    :root, [data-theme="paper"] {
+      --g-ink: #F4F2EE;
+      --g-soft: #8C9692;
+      --g-panel: #0C0F0E;
+      --g-rule: #3A4541;
+      --g-accent: #9B2B27;
+    }
+    [data-theme="void"] {
+      --g-ink: #E9EDEB;
+      --g-soft: #8C9692;
+      --g-panel: #0C0F0E;
+      --g-rule: #3A4541;
+      --g-accent: #3DF2B0;
+    }
+    [data-theme="blueprint"] {
+      --g-ink: #FFFFFF;
+      --g-soft: #5B6FC9;
+      --g-panel: #0B0B0B;
+      --g-rule: #1F3BB3;
+      --g-accent: #1F3BB3;
+    }
+
+    text {
+      font-family: "IBM Plex Mono", "JetBrains Mono", Consolas, monospace;
+      stroke: none !important;
+      fill: #FFFFFF !important;
+    }
+
+    .spoke-lines line {
+      stroke: var(--g-rule, #3A4541);
+      stroke-width: 1px;
+    }
+
+    .ring-path path {
+      stroke: var(--g-ink, #F4F2EE);
+      stroke-width: 1.2px;
+    }
+
+    .graph-node rect {
+      fill: var(--g-panel, #0C0F0E);
+      stroke: var(--g-ink, #F4F2EE);
+      stroke-width: 1.5px;
+    }
+
+    .graph-node text {
+      fill: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .c-title {
+      fill: #FFFFFF !important;
+      font-weight: 700;
+    }
+
+    .c-desc {
+      fill: #C4CBC8 !important;
+    }
+
+    .callout-line {
+      stroke: var(--g-ink, #F4F2EE);
+      stroke-width: 1px;
+      fill: none;
+      transition: stroke-width 0.15s ease, stroke 0.15s ease;
+    }
+
+    .callout-node-sq {
+      fill: var(--g-ink, #F4F2EE);
+      stroke: var(--g-rule, #3A4541);
+      stroke-width: 1px;
+    }
+
+    .callout-group:hover .callout-line,
+    .callout-group:focus .callout-line {
+      stroke: var(--g-accent, #9B2B27);
+      stroke-width: 2px;
+    }
+
+    .callout-group:hover .callout-node-sq,
+    .callout-group:focus .callout-node-sq {
+      fill: var(--g-accent, #9B2B27);
+    }
+
+    .callout-group:hover text.c-title,
+    .callout-group:focus text.c-title {
+      fill: var(--g-accent, #9B2B27);
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow-white" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--g-ink, #F4F2EE)" stroke="none" />
+    </marker>
+    <marker id="arrow-acc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="var(--g-accent, #9B2B27)" stroke="none" />
+    </marker>
+  </defs>
+
+  <!-- Hairlines from Orchestrator to all 6 satellite nodes -->
+  <g class="spoke-lines">
+    <line x1="440" y1="240" x2="300" y2="130" />
+    <line x1="440" y1="240" x2="600" y2="120" />
+    <line x1="440" y1="240" x2="660" y2="250" />
+    <line x1="440" y1="240" x2="580" y2="370" />
+    <line x1="440" y1="240" x2="290" y2="370" />
+    <line x1="440" y1="240" x2="210" y2="240" />
+  </g>
+
+  <!-- Directional ring path joining satellites in stage order -->
+  <g class="ring-path">
+    <!-- DECOMPOSE to EXECUTE -->
+    <path d="M 336 120 L 554 112" marker-end="url(#arrow-white)" />
+    <!-- EXECUTE to SCAN -->
+    <path d="M 626 138 L 652 204" marker-end="url(#arrow-white)" />
+    <!-- SCAN to HEAL -->
+    <path d="M 652 276 L 610 338" marker-end="url(#arrow-white)" />
+    <!-- HEAL to APPROVE -->
+    <path d="M 544 366 L 336 366" marker-end="url(#arrow-white)" />
+    <!-- APPROVE to DEPLOY -->
+    <path d="M 270 340 L 230 270" marker-end="url(#arrow-white)" />
+    <!-- DEPLOY to DECOMPOSE -->
+    <path d="M 224 204 L 278 144" marker-end="url(#arrow-white)" />
+  </g>
+
+  <!-- Dashed self-healing loop from HEAL back to EXECUTE -->
+  <g class="heal-loop" stroke="var(--g-accent, #9B2B27)" stroke-width="1.5" stroke-dasharray="4 4">
+    <path d="M 610 338 C 700 290, 700 170, 626 134" marker-end="url(#arrow-acc)" fill="none" />
+    <text x="704" y="235" fill="var(--g-accent, #9B2B27)" font-size="9" letter-spacing="0.08em" text-anchor="middle" stroke="none">RETRY LOOP</text>
+  </g>
+
+  <!-- Central Orchestrator Node (96px, 2px border, corner crosshairs) -->
+  <g id="node-orchestrator" class="graph-node">
+    <rect x="392" y="192" width="96" height="96" fill="#141716" stroke="var(--g-ink, #F4F2EE)" stroke-width="2" />
+    <!-- Crosshairs -->
+    <line x1="387" y1="192" x2="397" y2="192" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="392" y1="187" x2="392" y2="197" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+
+    <line x1="483" y1="192" x2="493" y2="192" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="488" y1="187" x2="488" y2="197" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+
+    <line x1="387" y1="288" x2="397" y2="288" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="392" y1="283" x2="392" y2="293" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+
+    <line x1="483" y1="288" x2="493" y2="288" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="488" y1="283" x2="488" y2="293" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+
+    <text x="440" y="236" fill="var(--g-ink, #F4F2EE)" stroke="none" font-size="10" font-weight="600" letter-spacing="0.1em" text-anchor="middle">ORCHESTRATOR</text>
+    <text x="440" y="252" fill="var(--g-soft, #8C9692)" stroke="none" font-size="9" letter-spacing="0.05em" text-anchor="middle">[ STATE ENGINE ]</text>
+  </g>
+
+  <!-- 1. DECOMPOSE Satellite Node -->
+  <g id="node-decompose" class="graph-node">
+    <rect x="264" y="84" width="72" height="72" />
+    <text x="300" y="116" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">DECOMPOSE</text>
+    <text x="300" y="132" fill="var(--g-soft, #8C9692)" font-size="8" text-anchor="middle">01 / PLAN</text>
+  </g>
+
+  <!-- 2. EXECUTE Satellite Node (container outline) -->
+  <g id="node-execute" class="graph-node">
+    <rect x="554" y="74" width="72" height="72" />
+    <text x="590" y="104" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">EXECUTE</text>
+    <rect x="576" y="114" width="28" height="20" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" fill="none" />
+    <line x1="576" y1="120" x2="604" y2="120" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="585" y1="125" x2="585" y2="130" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <line x1="595" y1="125" x2="595" y2="130" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+  </g>
+
+  <!-- 3. SCAN Satellite Node (bracket-and-line mark) -->
+  <g id="node-scan" class="graph-node">
+    <rect x="624" y="204" width="72" height="72" />
+    <text x="660" y="232" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">SCAN</text>
+    <path d="M 648 244 L 644 244 L 644 258 L 648 258" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" fill="none" />
+    <line x1="652" y1="251" x2="668" y2="251" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" />
+    <path d="M 672 244 L 676 244 L 676 258 L 672 258" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" fill="none" />
+  </g>
+
+  <!-- 4. HEAL Satellite Node -->
+  <g id="node-heal" class="graph-node">
+    <rect x="544" y="334" width="72" height="72" />
+    <text x="580" y="366" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">HEAL</text>
+    <text x="580" y="382" fill="var(--g-soft, #8C9692)" font-size="8" text-anchor="middle">04 / PATCH</text>
+  </g>
+
+  <!-- 5. APPROVE Satellite Node (checkbox glyph) -->
+  <g id="node-approve" class="graph-node">
+    <rect x="254" y="334" width="72" height="72" />
+    <text x="290" y="360" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">APPROVE</text>
+    <rect x="281" y="370" width="18" height="18" stroke="var(--g-ink, #F4F2EE)" stroke-width="1" fill="none" />
+    <path d="M 284 379 L 288 384 L 296 374" stroke="var(--g-ink, #F4F2EE)" stroke-width="1.2" fill="none" />
+  </g>
+
+  <!-- 6. DEPLOY Satellite Node -->
+  <g id="node-deploy" class="graph-node">
+    <rect x="154" y="194" width="72" height="72" />
+    <text x="190" y="228" font-size="9" font-weight="600" letter-spacing="0.08em" text-anchor="middle">DEPLOY</text>
+    <text x="190" y="244" fill="var(--g-soft, #8C9692)" font-size="8" text-anchor="middle">06 / PREVIEW</text>
+  </g>
+
+  <!-- 4 CALLOUTS (Straight line with at most one 45 deg bend ending in 6px square node) -->
+
+  <!-- Callout 1: DECOMPOSE -->
+  <g class="callout-group" tabindex="0">
+    <text x="24" y="34" class="c-title" font-size="11" letter-spacing="0.08em">TASK GRAPH</text>
+    <text x="24" y="48" class="c-desc" font-size="10">A request is split into ordered,</text>
+    <text x="24" y="62" class="c-desc" font-size="10">dependent tasks.</text>
+    <!-- Leader line: (190, 48) -> (220, 48) -> 45 deg to (264, 92) -->
+    <path class="callout-line" d="M 180 48 L 220 48 L 264 92" />
+    <!-- 6px square node at end -->
+    <rect class="callout-node-sq" x="261" y="89" width="6" height="6" />
+  </g>
+
+  <!-- Callout 2: EXECUTE -->
+  <g class="callout-group" tabindex="0">
+    <text x="690" y="34" class="c-title" font-size="11" letter-spacing="0.08em">ISOLATED RUN</text>
+    <text x="690" y="48" class="c-desc" font-size="10">Each task runs in its own</text>
+    <text x="690" y="62" class="c-desc" font-size="10">Docker container.</text>
+    <!-- Leader line: (680, 48) -> (650, 48) -> 45 deg to (626, 74) -->
+    <path class="callout-line" d="M 680 48 L 650 48 L 626 72" />
+    <rect class="callout-node-sq" x="623" y="69" width="6" height="6" />
+  </g>
+
+  <!-- Callout 3: SCAN -->
+  <g class="callout-group" tabindex="0">
+    <text x="710" y="240" class="c-title" font-size="11" letter-spacing="0.08em">SAST</text>
+    <text x="710" y="254" class="c-desc" font-size="10">Findings block the pipeline</text>
+    <text x="710" y="268" class="c-desc" font-size="10">before review.</text>
+    <!-- Leader line: straight to node -->
+    <path class="callout-line" d="M 700 250 L 696 250" />
+    <rect class="callout-node-sq" x="693" y="247" width="6" height="6" />
+  </g>
+
+  <!-- Callout 4: APPROVE -->
+  <g class="callout-group" tabindex="0">
+    <text x="24" y="430" class="c-title" font-size="11" letter-spacing="0.08em">GATE</text>
+    <text x="24" y="444" class="c-desc" font-size="10">A person signs off before any</text>
+    <text x="24" y="458" class="c-desc" font-size="10">preview is published.</text>
+    <!-- Leader line: (180, 440) -> (214, 440) -> 45 deg to (254, 400) -->
+    <path class="callout-line" d="M 180 440 L 214 440 L 254 400" />
+    <rect class="callout-node-sq" x="251" y="397" width="6" height="6" />
+  </g>
+</svg>

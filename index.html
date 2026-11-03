@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevCrew AI - Multi-Agent Software Delivery Wireframe</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <script src="scripts/mode.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Panel Overlay -->
+  <aside id="nav-panel" class="nav-panel" aria-label="Section directory" role="dialog">
+    <div class="nav-panel-header">
+      <span class="frame-title">INDEX DIRECTORY</span>
+      <button id="nav-close-btn" class="frame-close-btn" aria-label="Close directory">x</button>
+    </div>
+    <ul class="nav-list">
+      <li><a href="#section-hero"><span class="nav-list-num">01</span><span>DEVCREW AI</span></a></li>
+      <li><a href="#section-problem"><span class="nav-list-num">02</span><span>THE PROBLEM</span></a></li>
+      <li><a href="#section-architecture"><span class="nav-list-num">03</span><span>THE ARCHITECTURE</span></a></li>
+      <li><a href="#section-orchestration"><span class="nav-list-num">04</span><span>ORCHESTRATION ENGINE</span></a></li>
+      <li><a href="#section-agents"><span class="nav-list-num">05</span><span>AGENT ROSTER</span></a></li>
+      <li><a href="#section-self-healing"><span class="nav-list-num">06</span><span>SELF-HEALING LOOP</span></a></li>
+      <li><a href="#section-governance"><span class="nav-list-num">07</span><span>GOVERNANCE</span></a></li>
+      <li><a href="#section-preview"><span class="nav-list-num">08</span><span>PREVIEW DEPLOYMENTS</span></a></li>
+      <li><a href="#section-comparison"><span class="nav-list-num">09</span><span>CAPABILITY MATRIX</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- 6.0 TopBar (Fixed 64px) -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="#section-hero" class="logo-block" aria-label="DevCrew AI Home">DC</a>
+      <span class="brand-label">DEVCREW AI / SPEC v0.9</span>
+    </div>
+
+    <div class="topbar-center">
+      <button id="mode-switch-btn" class="mode-switch-btn" aria-label="Cycle theme mode">
+        <span class="globe-glyph" aria-hidden="true"></span>
+        <span>CHANGE MODE</span>
+      </button>
+      <span id="current-mode-label" class="mode-status-label">[ MODE: PAPER ]</span>
+    </div>
+
+    <div class="topbar-right">
+      <div class="local-time-block">
+        <div class="time-label">LOCAL TIME</div>
+        <div id="local-time-display" class="time-val">IST 00:12 AM</div>
+      </div>
+      <button id="nav-toggle-btn" class="hamburger-btn" aria-label="Open directory" aria-expanded="false">[=]</button>
+    </div>
+  </header>
+
+  <!-- Page Container -->
+  <div class="page-container">
+
+    <!-- 6.1 Hero (Section 01, Full Viewport, Near-Black) -->
+    <section id="section-hero" class="section-hero">
+      <div>
+        <div class="index-numeral-block">
+          <div class="index-numeral">01<span class="index-plus">+</span></div>
+          <h2 class="index-title">DEVCREW AI</h2>
+          <p class="index-subtitle">Multi-agent software delivery</p>
+        </div>
+
+        <div class="hero-main-grid">
+          <div>
+            <h1 class="hero-headline">
+              ONE TASK IN.<br>
+              A VERIFIED PREVIEW OUT.
+            </h1>
+            <p class="hero-support-text">
+              Modern software engineering workflows suffer from high operational overhead, siloed development steps, delayed security reviews, and manual deployment friction. DevCrew AI solves this with a collaborative multi-agent architecture controlled by a stateful orchestration engine.
+            </p>
+          </div>
+
+          <!-- Central PipelineGraph Hero Object with 4 Callouts -->
+          <div class="hero-graph-viewport">
+            <img src="assets/pipeline-graph.svg" alt="DevCrew AI Multi-Agent Pipeline Graph" width="880" height="500" class="full-svg">
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Bar -->
+      <div class="hero-bottom-bar">
+        <div class="core-stages-list">
+          <span class="core-stages-title">[CORE STAGES]</span>
+          <div class="core-stages-rows">
+            <span>01 DECOMPOSE</span>
+            <span>02 EXECUTE</span>
+            <span>03 SCAN</span>
+            <span>04 HEAL</span>
+            <span>05 APPROVE</span>
+            <span>06 DEPLOY</span>
+          </div>
+        </div>
+
+        <div class="frame hero-about-frame">
+          <div class="frame-header">
+            <span class="frame-title">ABOUT THIS BUILD</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            Stateful multi-agent orchestrator.<br>
+            Runtime: Ephemeral Linux containers with gVisor.<br>
+            Security verification: Automated static analysis.<br>
+            Distribution: Preview clusters with explicit human review.<br>
+            <div class="hero-about-links">
+              <a href="#section-architecture" class="link-accent">DOCUMENTATION</a>
+              <a href="#section-preview" class="link-subtle">SOURCE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Torn Edge Boundary into Paper Area -->
+    <div class="torn-edge-container" aria-hidden="true">
+      <img src="assets/torn-edge.svg" alt="" width="1440" height="90" class="full-svg">
+    </div>
+
+    <!-- Central Ink Spine running through Sections 02 to 08 -->
+    <div id="ink-spine-element" class="ink-spine-container" aria-hidden="true">
+      <img src="assets/ink-spine.svg" alt="" width="400" height="4000" class="full-svg">
+    </div>
+
+    <!-- 6.2 Problem (Section 02, Paper Area, Staggered) -->
+    <section id="section-problem" class="section-wrapper section-problem">
+      <div class="index-numeral-block">
+        <div class="index-numeral">02<span class="index-plus">+</span></div>
+        <h2 class="index-title">THE PROBLEM</h2>
+        <p class="index-subtitle">Why delivery still stalls</p>
+      </div>
+
+      <div class="problem-stagger-grid">
+        <!-- Left Stagger Column -->
+        <div class="col-left-stagger stagger-scroll">
+          <!-- Problem Item 1 -->
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">1 OPERATIONAL OVERHEAD</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              Engineers spend disproportionate time managing environments, orchestrating steps, and waiting on asynchronous feedback. Manual coordination introduces latency and context-switching across every stage of delivery.
+            </div>
+          </div>
+
+          <!-- Problem Item 2 -->
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">2 SILOED DEVELOPMENT</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              Code synthesis, testing, and deployment operate in isolated silos without shared structural state. When failures occur, context is lost between specialized teams and disconnected tools.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Stagger Column -->
+        <div class="col-right-stagger stagger-scroll">
+          <!-- Problem Item 3 -->
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">3 DELAYED SECURITY REVIEW</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              Security checks occur at the end of the release cycle rather than during initial synthesis. Vulnerabilities discovered post-development require expensive architectural rework and delayed release schedules.
+            </div>
+          </div>
+
+          <!-- Problem Item 4 -->
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">4 MANUAL DEPLOYMENT FRICTION</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              Preview environments require manual provisioning, configuration, and verification. Without automated deployment gates, release validation becomes a persistent human bottleneck.
+            </div>
+          </div>
+        </div>
+
+        <!-- Overlapping AttributePanel (Single-Turn Assistants) -->
+        <div class="problem-overlap-panel stagger-scroll">
+          <div class="attribute-panel">
+            <h3 class="attribute-panel-title">SINGLE-TURN ASSISTANTS [ASSESSMENT]</h3>
+            <div class="attribute-row">
+              <span class="attr-key">STATE</span>
+              <span class="attr-val">none between turns</span>
+            </div>
+            <div class="attribute-row">
+              <span class="attr-key">EXECUTION</span>
+              <span class="attr-val">not run, only suggested</span>
+            </div>
+            <div class="attribute-row">
+              <span class="attr-key">SECURITY</span>
+              <span class="attr-val">unverified at runtime</span>
+            </div>
+            <div class="attribute-row">
+              <span class="attr-key">ISOLATION</span>
+              <span class="attr-val">none</span>
+            </div>
+            <div class="attribute-row">
+              <span class="attr-key">RECOVERY</span>
+              <span class="attr-val">manual retry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.3 Architecture (Section 03, Sequence over Spine) -->
+    <section id="section-architecture" class="section-wrapper section-architecture">
+      <!-- Persistent vertical micro-label along the left edge -->
+      <div class="edge-label-vertical" aria-hidden="true">
+        STATE: SHARED, VERSIONED, RESUMABLE
+      </div>
+
+      <div class="index-numeral-block">
+        <div class="index-numeral">03<span class="index-plus">+</span></div>
+        <h2 class="index-title">THE ARCHITECTURE</h2>
+        <p class="index-subtitle">Stateful orchestration over specialized agents</p>
+      </div>
+
+      <!-- Stage 1: DECOMPOSE (Left) -->
+      <div class="arch-stage-row stage-left stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">1st.</span>
+            <h3 class="ordinal-title">DECOMPOSE</h3>
+            <p class="ordinal-caption">Planner breaks request into an ordered task graph</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">TASK GRAPH SPECIFICATION</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <code>ROOT: Ingest Stripe Webhook Endpoint</code><br>
+              <code>├── TASK-01: OpenAPI Schema & Route Definition</code><br>
+              <code>├── TASK-02: Cryptographic Signature Verification</code><br>
+              <code>├── TASK-03: Distributed Redis Idempotency Lock</code><br>
+              <code>└── TASK-04: Test Suite & Coverage Assertions</code>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Planner</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Natural language requirement</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Directed acyclic task graph</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Schema validation pass</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 2: EXECUTE (Right) -->
+      <div class="arch-stage-row stage-right stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">2nd.</span>
+            <h3 class="ordinal-title">EXECUTE</h3>
+            <p class="ordinal-caption">Coder and Executor run tasks in isolated containers</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">CONTAINER RUNTIME BOUNDARY</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <div>SANDBOX: dckr-sandbox-78a [ACTIVE]</div>
+              <div>MEMORY CAP: 1024 MB [EXAMPLE VALUE]</div>
+              <div>ISOLATION: gVisor kernel sandbox</div>
+              <div class="code-block-divider">
+                <code>$ go test -v -race -cover ./...</code><br>
+                <code>PASS: TestWebhookSignature (0.04s)</code><br>
+                <code>PASS: TestRedisIdempotency (0.12s)</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Coder and Executor</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Task spec & source tree</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Binary & execution trace</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Zero host filesystem access</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 3: SCAN (Left) -->
+      <div class="arch-stage-row stage-left stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">3rd.</span>
+            <h3 class="ordinal-title">SCAN</h3>
+            <p class="ordinal-caption">Security agent runs SAST over diff and artifact</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">SAST FINDINGS MATRIX</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <table class="data-table">
+                <thead>
+                  <tr><th>RULE ID</th><th>TARGET</th><th>SEVERITY</th><th>STATUS</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>GO-SEC-042</td><td>webhook_handler.go</td><td>HIGH</td><td>BLOCKED</td></tr>
+                  <tr><td>GO-SEC-019</td><td>redis_lock.go</td><td>LOW</td><td>PASSED</td></tr>
+                  <tr><td>GO-SEC-008</td><td>secret_scan</td><td>CRITICAL</td><td>PASSED</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Security Agent</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Diff & build artifacts</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Vulnerability report</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Block on high or critical</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 4: HEAL (Right) -->
+      <div class="arch-stage-row stage-right stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">4th.</span>
+            <h3 class="ordinal-title">HEAL</h3>
+            <p class="ordinal-caption">Healer reads failures and proposes automated patches</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">SELF-HEALING CONTROLLER</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <div>TRIGGER: GO-SEC-042 (Timing side-channel)</div>
+              <div>ITERATION: 2 of 4 [EXAMPLE VALUE]</div>
+              <div>ACTION: Replaced == with subtle.ConstantTimeCompare</div>
+              <div>STATUS: Re-running Docker test suite in isolated pod</div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Healer Agent</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Compiler errors & SAST logs</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Corrective patch diff</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Hard cap: 4 attempts</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 5: APPROVE (Left) -->
+      <div class="arch-stage-row stage-left stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">5th.</span>
+            <h3 class="ordinal-title">APPROVE</h3>
+            <p class="ordinal-caption">Human reviewer gate before preview distribution</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">APPROVAL GATE REVIEW</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <div>DIFF SUMMARY: +42 lines, -18 lines [EXAMPLE VALUE]</div>
+              <div>VERIFICATIONS: 9/9 Tests Pass, SAST 0 High</div>
+              <div class="gate-button-group">
+                <button class="btn-square btn-approve">APPROVE</button>
+                <button class="btn-square btn-secondary">REQUEST CHANGES</button>
+                <button class="btn-square btn-secondary">REJECT</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Reviewer Gateway</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Pull request candidate</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Cryptographic release sign-off</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Mandatory human signature</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stage 6: DEPLOY (Right) -->
+      <div class="arch-stage-row stage-right stagger-scroll">
+        <div class="arch-primary">
+          <div class="ordinal-label-block">
+            <span class="ordinal-numeral">6th.</span>
+            <h3 class="ordinal-title">DEPLOY</h3>
+            <p class="ordinal-caption">Deployer builds and publishes ephemeral CI/CD preview</p>
+          </div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">CI/CD PREVIEW CLUSTER</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <div>PREVIEW URL: https://pr-104.devcrew.internal [EXAMPLE VALUE]</div>
+              <div>ROUTING: Ephemeral ingress active</div>
+              <div>HEALTH STATUS: HTTP 200 OK (latency: 14ms) [EXAMPLE VALUE]</div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-secondary">
+          <div class="attribute-panel">
+            <h4 class="attribute-panel-title">STAGE ATTRIBUTES</h4>
+            <div class="attribute-row"><span class="attr-key">AGENT</span><span class="attr-val">Deployer Agent</span></div>
+            <div class="attribute-row"><span class="attr-key">INPUT</span><span class="attr-val">Approved container image</span></div>
+            <div class="attribute-row"><span class="attr-key">OUTPUT</span><span class="attr-val">Preview URL endpoint</span></div>
+            <div class="attribute-row"><span class="attr-key">GUARD</span><span class="attr-val">Health check verification</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Torn Edge Boundary into Orchestration Dark Band -->
+    <div class="torn-edge-container torn-edge-inverted" aria-hidden="true">
+      <img src="assets/torn-edge.svg" alt="" width="1440" height="90" class="full-svg">
+    </div>
+
+    <!-- 6.4 Orchestration Engine (Section 04, Dark Band) -->
+    <section id="section-orchestration" class="section-wrapper section-orchestrator-band">
+      <div class="index-numeral-block">
+        <div class="index-numeral">04<span class="index-plus">+</span></div>
+        <h2 class="index-title">ORCHESTRATION ENGINE</h2>
+        <p class="index-subtitle">Deterministic state machine and execution bounds</p>
+      </div>
+
+      <div class="orchestrator-grid">
+        <!-- Left: State Store -->
+        <div class="frame">
+          <div class="frame-header">
+            <span class="frame-title">[STATE STORE]</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            <div>KEY REGISTRY:</div>
+            <div class="state-store-keys">
+              <code>- run_id: 98bf-42a1</code><br>
+              <code>- task_graph: DAG_v2</code><br>
+              <code>- artifacts: sha256_e81b</code><br>
+              <code>- findings: SAST_0_high</code><br>
+              <code>- approvals: user_signed</code><br>
+              <code>- logs: audit_stream_04</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: State Machine Diagram -->
+        <div class="state-machine-box">
+          <div class="graph-header-title">
+            FINITE STATE TRANSITION GRAPH
+          </div>
+          <svg viewBox="0 0 600 240" width="100%" height="240" fill="none" stroke="currentColor" aria-label="State machine transition diagram" role="img">
+            <title>Finite State Machine Diagram</title>
+            <desc>Linear state transitions: Pending, Running, Scanning, Healing, Awaiting Approval, Deploying, Done, with branches to Failed state.</desc>
+            <!-- States -->
+            <rect x="10" y="30" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="55" y="52" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">PENDING</text>
+
+            <line x1="100" y1="48" x2="130" y2="48" stroke="currentColor" stroke-width="1" />
+
+            <rect x="130" y="30" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="175" y="52" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">RUNNING</text>
+
+            <line x1="220" y1="48" x2="250" y2="48" stroke="currentColor" stroke-width="1" />
+
+            <rect x="250" y="30" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="295" y="52" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">SCANNING</text>
+
+            <line x1="340" y1="48" x2="370" y2="48" stroke="currentColor" stroke-width="1" />
+
+            <rect x="370" y="30" width="100" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="420" y="52" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">AWAITING_APPR</text>
+
+            <line x1="470" y1="48" x2="500" y2="48" stroke="currentColor" stroke-width="1" />
+
+            <rect x="500" y="30" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="545" y="52" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">DEPLOYING</text>
+
+            <!-- Healing Loop -->
+            <rect x="250" y="110" width="90" height="36" stroke="var(--accent)" stroke-width="1.5" />
+            <text x="295" y="132" fill="var(--accent)" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">HEALING</text>
+
+            <path d="M 295 66 L 295 110" stroke="var(--accent)" stroke-width="1" />
+            <path d="M 250 128 L 175 128 L 175 66" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3 3" />
+
+            <!-- Done & Failed -->
+            <rect x="500" y="110" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="545" y="132" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">DONE</text>
+            <path d="M 545 66 L 545 110" stroke="currentColor" stroke-width="1" />
+
+            <rect x="130" y="180" width="90" height="36" stroke="currentColor" stroke-width="1" />
+            <text x="175" y="202" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">FAILED</text>
+            <path d="M 175 66 L 175 180" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" />
+          </svg>
+
+          <!-- TickScale & Barcode -->
+          <div class="tick-scale">
+            <span class="tick-mark major tick-pos-0"><span class="tick-label">0s</span></span>
+            <span class="tick-mark tick-pos-20"></span>
+            <span class="tick-mark major tick-pos-40"><span class="tick-label">20s</span></span>
+            <span class="tick-mark tick-pos-60"></span>
+            <span class="tick-mark major tick-pos-80"><span class="tick-label">40s</span></span>
+            <span class="tick-mark major tick-pos-100"><span class="tick-label">60s</span></span>
+          </div>
+
+          <div class="barcode-meta-row">
+            <div class="barcode-block">
+              <div class="barcode-strip" aria-hidden="true">
+                <span class="barcode-bar bar-w-2"></span>
+                <span class="barcode-bar bar-w-1"></span>
+                <span class="barcode-bar bar-w-3"></span>
+                <span class="barcode-bar bar-w-1"></span>
+                <span class="barcode-bar bar-w-4"></span>
+                <span class="barcode-bar bar-w-2"></span>
+                <span class="barcode-bar bar-w-1"></span>
+                <span class="barcode-bar bar-w-3"></span>
+                <span class="barcode-bar bar-w-2"></span>
+              </div>
+              <span class="barcode-id">RUN-ID: 98BF-42A1 [EXAMPLE VALUE]</span>
+            </div>
+            <span class="resumable-meta-tag">STATE VECTOR RESUMABLE</span>
+          </div>
+        </div>
+
+        <!-- Right: Guarantees List -->
+        <div class="frame">
+          <div class="frame-header">
+            <span class="frame-title">[GUARANTEES]</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            <div class="stack-gap-8">
+              <div>1. Resumable after process or network crash</div>
+              <div>2. Every transition cryptographically logged</div>
+              <div>3. Every agent call strictly bounded by timeout</div>
+              <div>4. Zero agent writes outside isolated sandbox</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Torn Edge Boundary returning from Orchestration Dark Band to Paper -->
+    <div class="torn-edge-container torn-edge-normal" aria-hidden="true">
+      <img src="assets/torn-edge.svg" alt="" width="1440" height="90" class="full-svg">
+    </div>
+
+    <!-- 6.5 Agent Roster (Section 05) -->
+    <section id="section-agents" class="section-wrapper section-agents">
+      <div class="index-numeral-block">
+        <div class="index-numeral">05<span class="index-plus">+</span></div>
+        <h2 class="index-title">AGENT ROSTER</h2>
+        <p class="index-subtitle">Specialized multi-agent swarm architecture</p>
+      </div>
+
+      <div class="ordinal-label-block">
+        <span class="ordinal-numeral">5th.</span>
+        <h3 class="ordinal-title">SPECIALIZED SWARM</h3>
+        <p class="ordinal-caption">Collaborative multi-agent delivery</p>
+      </div>
+
+      <div class="agent-strip">
+        <!-- Lead Feature Card: Planner -->
+        <div class="agent-lead-card stagger-scroll">
+          <div>
+            <span class="agent-cat-tag">LEAD ARCHITECT</span>
+            <h3 class="agent-title-lead">PLANNER AGENT</h3>
+            <p class="agent-desc-lead">
+              Ingests raw feature briefs and decomposes tasks into structured acyclic dependency graphs with explicit contract schemas. Prevents ambiguous prompt execution by validating task dependencies prior to code synthesis.
+            </p>
+            <div class="frame">
+              <div class="frame-header">
+                <span class="frame-title">PLANNER PROMPT & INTERFACE SPECIFICATION</span>
+                <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+              </div>
+              <div class="frame-body">
+                <code>TASK: Ingest user specification</code><br>
+                <code>INPUT_SCHEMA: strict JSON definition</code><br>
+                <code>DEPENDENCY_SOLVER: Topological Kahn Algorithm</code><br>
+                <code>OUTPUT: DAG with pre-conditions and post-conditions</code>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="attribute-panel">
+              <h4 class="attribute-panel-title">PLANNER ATTRIBUTES</h4>
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">AST Parser, DAG Engine</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Read-Only Host Metadata</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">30s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Task Graph Manifest Only</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Secondary Agent Cards (Staggered Cascade) -->
+        <div class="agent-stagger-cascade stagger-scroll">
+          <!-- 1. Coder (Left) -->
+          <div class="agent-card agent-card-left">
+            <div>
+              <div class="agent-cat-tag">DEVELOPMENT</div>
+              <h4 class="agent-title-sec">CODER AGENT</h4>
+              <p class="agent-desc-sec">Synthesizes clean modular implementations and unit test suites.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">LSP, Source Synthesizer</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Mounted Workdir</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">120s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Source Tree Diffs</span></div>
+            </div>
+          </div>
+
+          <!-- 2. Executor (Right) -->
+          <div class="agent-card agent-card-right">
+            <div>
+              <div class="agent-cat-tag">EXECUTION</div>
+              <h4 class="agent-title-sec">EXECUTOR AGENT</h4>
+              <p class="agent-desc-sec">Executes builds and test suites inside containerized Docker boundaries.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">Docker CLI, Test Harness</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Isolated Container</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">300s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Execution Traces</span></div>
+            </div>
+          </div>
+
+          <!-- 3. Security (Left) -->
+          <div class="agent-card agent-card-left">
+            <div>
+              <div class="agent-cat-tag">VERIFICATION</div>
+              <h4 class="agent-title-sec">SECURITY AGENT</h4>
+              <p class="agent-desc-sec">Runs SAST rules, secret scans, and container CVE audits.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">Semgrep, Trivy, SecretScanner</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Read-Only Mount</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">60s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Security Audit Log</span></div>
+            </div>
+          </div>
+
+          <!-- 4. Healer (Right) -->
+          <div class="agent-card agent-card-right">
+            <div>
+              <div class="agent-cat-tag">REMEDY</div>
+              <h4 class="agent-title-sec">HEALER AGENT</h4>
+              <p class="agent-desc-sec">Analyzes test traces and synthesizes minimal bugfix diffs.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">Diff Synthesizer, AST Patch</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Mounted Workdir</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">90s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Candidate Patches</span></div>
+            </div>
+          </div>
+
+          <!-- 5. Reviewer Gateway (Left) -->
+          <div class="agent-card agent-card-left">
+            <div>
+              <div class="agent-cat-tag">GOVERNANCE</div>
+              <h4 class="agent-title-sec">REVIEWER GATEWAY</h4>
+              <p class="agent-desc-sec">Enforces human-in-the-loop validation prior to deployment.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">Webhook, Web Push, Signer</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Isolated Gateway</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">Human Dependent</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Signed Token</span></div>
+            </div>
+          </div>
+
+          <!-- 6. Deployer (Right) -->
+          <div class="agent-card agent-card-right">
+            <div>
+              <div class="agent-cat-tag">DISTRIBUTION</div>
+              <h4 class="agent-title-sec">DEPLOYER AGENT</h4>
+              <p class="agent-desc-sec">Provisions ephemeral preview clusters and generates preview URLs.</p>
+            </div>
+            <div class="attribute-panel">
+              <div class="attribute-row"><span class="attr-key">TOOLS</span><span class="attr-val">K8s API, Cloud Ingress</span></div>
+              <div class="attribute-row"><span class="attr-key">SANDBOX</span><span class="attr-val">Cluster Scoped</span></div>
+              <div class="attribute-row"><span class="attr-key">TIMEOUT</span><span class="attr-val">180s Bound</span></div>
+              <div class="attribute-row"><span class="attr-key">WRITES</span><span class="attr-val">Live Preview Ingress</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.6 Self-Healing Loop (Section 06) -->
+    <section id="section-self-healing" class="section-wrapper section-self-healing">
+      <div class="index-numeral-block">
+        <div class="index-numeral">06<span class="index-plus">+</span></div>
+        <h2 class="index-title">SELF-HEALING LOOP</h2>
+        <p class="index-subtitle">Autonomous failure diagnosis and capped retry cycle</p>
+      </div>
+
+      <div class="healing-grid stagger-scroll">
+        <!-- Left: Closed Loop Diagram -->
+        <div class="loop-diagram-container">
+          <div class="graph-header-title">
+            FAILURE CORRECTION CYCLE (CLOSED LOOP)
+          </div>
+          <svg viewBox="0 0 460 220" width="100%" height="220" fill="none" stroke="currentColor" aria-label="Self-healing cycle diagram" role="img">
+            <title>Self-Healing Cycle Diagram</title>
+            <desc>Linear execution flow from Execute to Test to Scan, with a return loop from Heal on failure.</desc>
+            <!-- EXECUTE -->
+            <rect x="20" y="20" width="90" height="40" stroke="currentColor" stroke-width="1" />
+            <text x="65" y="44" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle">EXECUTE</text>
+
+            <line x1="110" y1="40" x2="160" y2="40" stroke="currentColor" stroke-width="1" />
+
+            <!-- TEST -->
+            <rect x="160" y="20" width="90" height="40" stroke="currentColor" stroke-width="1" />
+            <text x="205" y="44" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle">TEST</text>
+
+            <line x1="250" y1="40" x2="300" y2="40" stroke="currentColor" stroke-width="1" />
+
+            <!-- SCAN -->
+            <rect x="300" y="20" width="90" height="40" stroke="currentColor" stroke-width="1" />
+            <text x="345" y="44" fill="currentColor" stroke="none" font-family="var(--font-mono)" font-size="10" font-weight="600" text-anchor="middle">SCAN</text>
+
+            <!-- Down to HEAL on failure -->
+            <path d="M 345 60 L 345 120" stroke="var(--accent)" stroke-width="1" />
+            <text x="355" y="94" fill="var(--accent)" stroke="none" font-family="var(--font-mono)" font-size="9">fail / finding</text>
+
+            <!-- HEAL -->
+            <rect x="160" y="120" width="230" height="44" stroke="var(--accent)" stroke-width="2" />
+            <text x="275" y="146" fill="var(--accent)" stroke="none" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="middle">HEAL (DIAGNOSE & PATCH)</text>
+
+            <!-- Return loop to EXECUTE -->
+            <path d="M 160 142 L 65 142 L 65 60" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 4" />
+            <text x="100" y="134" fill="var(--accent)" stroke="none" font-family="var(--font-mono)" font-size="9" text-anchor="middle">retry diff</text>
+
+            <text x="275" y="186" fill="var(--ink-soft)" stroke="none" font-family="var(--font-mono)" font-size="10" text-anchor="middle">attempt 2 of 4 [EXAMPLE VALUE]</text>
+          </svg>
+        </div>
+
+        <!-- Right: Attempt Log & Meter -->
+        <div class="frame">
+          <div class="frame-header">
+            <span class="frame-title">ATTEMPT LOG</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            <div class="meter-row meter-mb-16">
+              <span class="meter-label">ATTEMPT BUDGET</span>
+              <div class="meter-bar" aria-hidden="true">
+                <span class="meter-segment filled"></span>
+                <span class="meter-segment filled"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+                <span class="meter-segment"></span>
+              </div>
+              <span class="meter-val">2/4</span>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr><th>ATTEMPT</th><th>TRIGGER</th><th>PATCH SUMMARY</th><th>RESULT</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>01</td><td>NullPointer in lock init</td><td>Added null guard at redis_lock.go:42</td><td>PASSED</td></tr>
+                <tr><td>02</td><td>Timing attack (CWE-208)</td><td>Swapped comparison to subtle.ConstantTime</td><td>RUNNING</td></tr>
+                <tr><td>03</td><td>--</td><td>--</td><td>PENDING</td></tr>
+                <tr><td>04</td><td>--</td><td>--</td><td>PENDING</td></tr>
+              </tbody>
+            </table>
+
+            <p class="note-text">
+              The self-healing cycle is strictly capped at four attempts and automatically escalates to a human reviewer if tests or security checks fail to converge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.7 Governance (Section 07) -->
+    <section id="section-governance" class="section-wrapper section-governance">
+      <div class="index-numeral-block">
+        <div class="index-numeral">07<span class="index-plus">+</span></div>
+        <h2 class="index-title">GOVERNANCE</h2>
+        <p class="index-subtitle">Mandatory human sign-off before artifact distribution</p>
+      </div>
+
+      <div class="governance-grid stagger-scroll">
+        <!-- Left: Approval Gate Frame with Callout Overlay -->
+        <div>
+          <div class="frame">
+            <div class="frame-header">
+              <span class="frame-title">APPROVAL GATE [GATE-104]</span>
+              <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+            </div>
+            <div class="frame-body">
+              <div class="audit-meta-block">
+                <strong>DIFF SUMMARY:</strong> +42 lines, -18 lines across 3 files [EXAMPLE VALUE]<br>
+                <strong>BRANCH:</strong> <code>feature/stripe-webhook-handler</code><br>
+                <strong>CONTAINER HASH:</strong> <code>sha256:4b91f0a28c</code>
+              </div>
+
+              <div class="audit-checks-block">
+                <div>CHECKS PASSED:</div>
+                <div class="audit-checks-list">
+                  [x] 9/9 Docker container unit and race tests pass<br>
+                  [x] SAST zero high/critical vulnerabilities (Semgrep rule pass)<br>
+                  [x] Redis idempotency lock verified under concurrent simulation
+                </div>
+              </div>
+
+              <div class="gate-button-group">
+                <button class="btn-square btn-approve">APPROVE</button>
+                <button class="btn-square btn-secondary">REQUEST CHANGES</button>
+                <button class="btn-square btn-secondary">REJECT</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout overlay -->
+          <div class="callout-overlay-badge">
+            <span class="callout-node"></span> NO DEPLOY WITHOUT APPROVAL
+          </div>
+        </div>
+
+        <!-- Right: Audit Trail Frame -->
+        <div class="frame">
+          <div class="frame-header">
+            <span class="frame-title">AUDIT TRAIL [APPEND ONLY]</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            <table class="data-table">
+              <thead>
+                <tr><th>TIMESTAMP</th><th>ACTOR</th><th>ACTION</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>10:42:01 IST</td><td>Planner (Agent)</td><td>Task graph decomposed</td></tr>
+                <tr><td>10:42:15 IST</td><td>Executor (Agent)</td><td>Docker container spawned</td></tr>
+                <tr><td>10:42:30 IST</td><td>Security (Agent)</td><td>Flagged CWE-208 warning</td></tr>
+                <tr><td>10:42:34 IST</td><td>Healer (Agent)</td><td>Applied constant-time patch</td></tr>
+                <tr><td>10:42:48 IST</td><td>Executor (Agent)</td><td>All test assertions passed</td></tr>
+                <tr><td>10:43:02 IST</td><td>Reviewer Gateway</td><td>Escalated to human reviewer</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.8 Preview Deployments (Section 08) -->
+    <section id="section-preview" class="section-wrapper section-preview">
+      <div class="index-numeral-block">
+        <div class="index-numeral">08<span class="index-plus">+</span></div>
+        <h2 class="index-title">PREVIEW DEPLOYMENTS</h2>
+        <p class="index-subtitle">Ephemeral runtime staging and version history</p>
+      </div>
+
+      <div class="preview-grid stagger-scroll">
+        <!-- Browser Preview Mockup -->
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <span class="browser-dot"></span>
+            <div class="browser-url">https://pr-104.devcrew.internal [EXAMPLE VALUE]</div>
+          </div>
+          <div class="preview-placeholder">
+            <div class="crosshair crosshair-tl"></div>
+            <div class="crosshair crosshair-tr"></div>
+            <div class="crosshair crosshair-bl"></div>
+            <div class="crosshair crosshair-br"></div>
+            <span>PREVIEW 960 x 540 [EXAMPLE VALUE]</span>
+          </div>
+          <div class="browser-status-bar">
+            <span>PIPELINE STEPS: BUILD &gt; PUSH &gt; DEPLOY &gt; VERIFY</span>
+            <span class="status-accent">ACTIVE INGRESS</span>
+          </div>
+        </div>
+
+        <!-- Historic Versions Frame -->
+        <div class="frame">
+          <div class="frame-header">
+            <span class="frame-title">HISTORIC VERSION REGISTRY</span>
+            <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+          </div>
+          <div class="frame-body">
+            <table class="data-table">
+              <thead>
+                <tr><th>TAG</th><th>TIMESTAMP</th><th>STATUS</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>v0.9.4-pr104</td><td>10:44:12 IST</td><td>LIVE PREVIEW</td></tr>
+                <tr><td>v0.9.3-pr102</td><td>09:12:40 IST</td><td>TEARDOWN</td></tr>
+                <tr><td>v0.9.2-pr099</td><td>08:05:19 IST</td><td>TEARDOWN</td></tr>
+                <tr><td>v0.9.1-pr094</td><td>07:33:02 IST</td><td>TEARDOWN</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.9 Comparison (Section 09) -->
+    <section id="section-comparison" class="section-wrapper section-comparison">
+      <div class="comparison-header">
+        <div class="ordinal-label-block flex-1">
+          <span class="ordinal-numeral">1st.</span>
+          <h3 class="ordinal-title">SINGLE-TURN</h3>
+          <p class="ordinal-caption">Prompt-based completion without runtime bounds</p>
+        </div>
+        <div class="ordinal-label-block flex-1">
+          <span class="ordinal-numeral">2nd.</span>
+          <h3 class="ordinal-title">DEVCREW AI</h3>
+          <p class="ordinal-caption">Collaborative stateful multi-agent delivery</p>
+        </div>
+      </div>
+
+      <div class="index-numeral-block">
+        <div class="index-numeral">09<span class="index-plus">+</span></div>
+        <h2 class="index-title">CAPABILITY MATRIX</h2>
+        <p class="index-subtitle">Structural comparison against prompt-only assistants</p>
+      </div>
+
+      <table class="data-table table-mt-24">
+        <thead>
+          <tr>
+            <th class="th-w-30">CAPABILITY</th>
+            <th class="th-w-35">SINGLE-TURN ASSISTANT</th>
+            <th class="th-w-35">DEVCREW AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>State across steps</strong></td>
+            <td>None</td>
+            <td>Persistent, versioned</td>
+          </tr>
+          <tr>
+            <td><strong>Runs the code</strong></td>
+            <td>No</td>
+            <td>Yes, in Docker</td>
+          </tr>
+          <tr>
+            <td><strong>Security verification</strong></td>
+            <td>None</td>
+            <td>SAST on every run</td>
+          </tr>
+          <tr>
+            <td><strong>Failure handling</strong></td>
+            <td>User retries</td>
+            <td>Healing loop with cap</td>
+          </tr>
+          <tr>
+            <td><strong>Human oversight</strong></td>
+            <td>Implicit</td>
+            <td>Explicit approval gate</td>
+          </tr>
+          <tr>
+            <td><strong>Deployment</strong></td>
+            <td>Manual</td>
+            <td>Automated preview</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 6.10 Footer (Dark) -->
+    <footer class="footer-dark">
+      <h2 class="footer-closing-headline">
+        SEND A TASK.<br>
+        REVIEW THE RESULT.
+      </h2>
+
+      <div class="frame footer-start-frame">
+        <div class="frame-header">
+          <span class="frame-title">START</span>
+          <button class="frame-close-btn" aria-label="Toggle frame">x</button>
+        </div>
+        <div class="frame-body">
+          <div class="footer-cmd">
+            <code>$ curl -fsSL https://get.devcrew.ai | sh [EXAMPLE COMMAND]</code>
+          </div>
+          <div class="footer-actions">
+            <a href="#section-hero" class="link-accent">READ THE DOCS</a>
+            <a href="#section-preview" class="link-light">VIEW SOURCE</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Columns (5 groups of 4 links) -->
+      <div class="footer-columns">
+        <div>
+          <div class="footer-col-title">PLATFORM</div>
+          <ul class="footer-link-list">
+            <li><a href="#section-orchestration">Orchestration</a></li>
+            <li><a href="#section-architecture">State Store</a></li>
+            <li><a href="#section-self-healing">Container Runner</a></li>
+            <li><a href="#section-preview">Preview Router</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">AGENTS</div>
+          <ul class="footer-link-list">
+            <li><a href="#section-agents">Planner</a></li>
+            <li><a href="#section-agents">Coder & Executor</a></li>
+            <li><a href="#section-agents">Security Guard</a></li>
+            <li><a href="#section-agents">Self-Healer</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">SECURITY</div>
+          <ul class="footer-link-list">
+            <li><a href="#section-architecture">SAST Rules</a></li>
+            <li><a href="#section-architecture">gVisor Sandbox</a></li>
+            <li><a href="#section-governance">Secret Scanners</a></li>
+            <li><a href="#section-governance">Audit Logging</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">DEPLOYMENT</div>
+          <ul class="footer-link-list">
+            <li><a href="#section-preview">Preview Clusters</a></li>
+            <li><a href="#section-preview">Ingress Routing</a></li>
+            <li><a href="#section-governance">Approval Gates</a></li>
+            <li><a href="#section-preview">Teardown Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">PROJECT</div>
+          <ul class="footer-link-list">
+            <li><a href="#section-hero">Architecture Spec</a></li>
+            <li><a href="#section-comparison">Capability Matrix</a></li>
+            <li><a href="#section-hero">Documentation</a></li>
+            <li><a href="#section-hero">Source Repository</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Metadata Row -->
+      <div class="footer-meta-row">
+        <span>VERSION: 0.9.4-PREVIEW [EXAMPLE VALUE]</span>
+        <span>LICENSE: APACHE 2.0</span>
+        <span>LOCAL TIME: <span id="footer-time-display">IST 00:12 AM</span></span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
